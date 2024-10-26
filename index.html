@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //Завдання 1
+        /*1. Дано ціле число N. Необхідно вивести всі точні квадрати натуральних чисел, що не
+         перевищують цього числа N.*/
+
+        let N = parseInt(prompt("Введіть число N: "));
+        if (isNaN(N)) {
+            alert("Ви ввели число невірно!!!");
+        }
+        for (let i = 1; i < N; i++) {
+
+            console.log(i ** 2);
+        }
+        /*2. Вивести на екран
+        A B C D E
+        B C D E F
+        C D E F G
+        D E F G H
+        E F G H I*/
+
+        let codefirstchar = 65;
+        for (let i = 0; i < 5; i++) {
+            console.log(String.fromCharCode(codefirstchar) + " "
+                + String.fromCharCode(codefirstchar + 1) + " "
+                + String.fromCharCode(codefirstchar + 2) + " "
+                + String.fromCharCode(codefirstchar + 3) + " "
+                + String.fromCharCode(codefirstchar + 4) + " ");
+            codefirstchar++;
+        }
+
+        /*3. Написати програму, яка показуватиме на екран квадрат числа, введеного
+        користувачем. Користувач повинен сам вирішувати – вийти із програми або продовжити
+        введення.*/
+
+        let number = 0;
+        let sure = true;
+        while (sure == true) {
+            number = parseInt(prompt("Введіть число number: "));
+            if (isNaN(number)) {
+                alert("Ви ввели число невірно!!!");
+            }
+            sure = confirm("Квадрат введеного числа: " + number ** 2 + ". Бажаєте продовжити введення? ")
+            console.log(sure)
+        }
+
+        /*4. Є n бактерій червоного кольору. Через 1 такт часу червона бактерія змінюється на
+        зелену, потім через 1 такт часу ділиться на червону та зелену. Скільки буде всіх бактерій
+        через k-тактів часу?*/
+
+        let red = parseInt(prompt("Введіть число початкову кількість бакторій червоного кольору: "));
+        let green = 0;
+        if (isNaN(red)) {
+            alert("Ви ввели число невірно!!!");
+        }
+        let k = parseInt(prompt("Введіть кількість тактів: "));
+        if (isNaN(k)) {
+            alert("Ви ввели число невірно!!!");
+        }
+        for (let i = 0; i <= k; i++) {
+            value = green;
+            green += red;
+            red = value
+        }
+        let total = red + green
+        console.log("Загальна кількість бактерій через " + k + " тактів = " + total)
+
+        /*15. Натуральне число з n цифр є числом Армстронга, тобто. сума його цифр зведена в
+        ступінь n, дорівнює самому числу (153 = 1 * 1 * 1 + 5 * 5 * 5 + 3 * 3 * 3). Отримати всі числа
+        */
+        //Для n=3
+        for (let i = 1; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                for (let b = 1; b < 10; b++) {
+                    if (i * 100 + j * 10 + b == i ** 3 + j ** 3 + b ** 3) {
+                        console.log(i * 100 + j * 10 + b);
+                    }
+                }
+            }
+        }
+
+        //Для n=4
+        for (let i = 1; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                for (let b = 1; b < 10; b++) {
+                    for (let v = 1; v < 10; v++)
+                        if (i * 1000 + j * 100 + b * 10 + v == i ** 4 + j ** 4 + b ** 4 + v ** 4) {
+                            console.log(i * 1000 + j * 100 + b * 10 + v);
+                        }
+                }
+            }
+        }
+        //Завдання 2
+        /*1. Створити функцію, яка створює в документі таблицю з вказаною кількістю рядків і
+        стовпців*/
+
+        function maketable(rows, cols) {
+            let table = `<table border=1px>`;
+            for (let i = 1; i <= rows; i++) {
+                table += `<tr> `;
+                for (let j = 1; j <= cols; j++) {
+                    table += `<td>text</td>`;
+                }
+                table += `</tr>`;
+            }
+            table += `</table>`;
+            return table;
+        }
+        document.write(maketable(3, 3));
+
+        /*2. Створити функцію, яка для 4 чисел знаходять середнє арифметичне.*/
+
+        let lambdamiddlesum = (num1, num2, num3, num4) => { return (num1 + num1 + num3 + num4) / 4 };
+        console.log("Середнє арифметичне чисел: " + lambdamiddlesum(2, 2, 4, 4))
+
+        /*5. Створити функцію, яка за номером місяця повертає його назву.*/
+        var anonymusMonth = function (number) {
+            let result;
+            switch (number) {
+                case 1:
+                    result = "January";
+                    break;
+                case 2:
+                    result = "Fabruary";
+                    break;
+                case 3:
+                    result = "March";
+                    break;
+                case 4:
+                    result = "April";
+                    break;
+                case 5:
+                    result = "May";
+                    break;
+                case 6:
+                    result = "June";
+                    break;
+                case 7:
+                    result = "July";
+                    break;
+                case 8:
+                    result = "August";
+                    break;
+                case 9:
+                    result = "September";
+                    break;
+                case 10:
+                    result = "October";
+                    break;
+                case 11:
+                    result = "November";
+                    break;
+                case 12:
+                    result = "December";
+                    break;
+                default:
+                    console.log("Ви ввели неправильний номер місяця")
+            }
+            return result;
+        }
+        console.log(anonymusMonth(8))
+        //Завдання 3
+        /*1. Дано масив, який містить оцінки студента з К предметів. Знайти середній бал студента
+        і з’ясувати до якої категорії він відноситься (відмінник (всі оцінки відмінно), двійочник
+        (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник (є хоча би одна
+        трійка)).*/
+        let grades = [5, 4, 3, 2, 4, 5, 4, 3, 5, 2, 3, 3, 4, 4, 5, 5, 5, 5]
+        let middle = 0;
+        for (el of grades) {
+            middle += el;
+        }
+        middle /= grades.length;
+        middle = Math.round(middle);
+        console.log("Середній бал студента: " + middle);
+        if (grades.includes(2) == true) {
+            console.log("Категорія студента: " + "двійочник")
+        } else if (grades.includes(3) == true) {
+            console.log("Категорія студента: " + "трієчник")
+        } else if (grades.includes(4) == true) {
+            console.log("Категорія студента: " + "хорошист")
+        } else {
+            console.log("Категорія студента: " + "відмінник")
+        }
+        /*2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на
+        екран:
+        • номери днів, протягом яких кількість відвідувачів була меншою за 20;
+        • номери днів, коли кількість відвідувачів була мінімальною;
+        • номери днів, коли кількість відвідувачів була максимальною;
+        • загальну кількість клієнтів у робочі дні;
+        • кількість клієнтів днів на вихідних.*/
+        let people = [50, 78, 67, 90, 89, 78, 12]
+        console.log("Номери днів, протягом яких кількість відвідувачів була меншою за 20: ")
+        for (let i = 0; i < 7; i++) {
+            if (people[i] < 20) {
+                console.log(i++)
+            }
+        }
+        let max = 0;
+        console.log("Номери днів, коли кількість відвідувачів була максимальною: ")
+        for (let i = 0; i < 7; i++) {
+            if (people[i] > max) {
+                max = people[i];
+            }
+        }
+        for (let i = 0; i < 7; i++) {
+            if (people[i] == max) {
+                console.log(i++)
+            }
+        }
+        let min = max;
+        console.log("Номери днів, коли кількість відвідувачів була мінімальною: ")
+        for (let i = 0; i < 7; i++) {
+            if (people[i] < min) {
+                min = people[i];
+            }
+        }
+        for (let i = 0; i < 7; i++) {
+            if (people[i] == min) {
+                console.log(i++)
+            }
+        }
+        let totalpeople = 0;
+        for (let i = 0; i < 5; i++) {
+            totalpeople += people[i];
+        }
+        console.log("Загальна кількість клієнтів у робочі дні: " + totalpeople);
+        let peopleweekend = people[5] + people[6];
+        console.log("Кількість клієнтів днів на вихідних: " + peopleweekend);
+        /*3. Дано масив імен студентів,. З’ясувати скільки разів зустрічається вказане користувачем
+        ім’я, наприклад «Юрій».*/
+        let chooseName = String(prompt("Введіть ім'я: "))
+        let count = 0;
+        let arrNames = ["Юрій", "Іван", "Андрій", "Юлія", "Юрій", "Юрій", "Юрій", "Юлія", "Віталій"];
+        for (el of arrNames) {
+            if (el == chooseName) {
+                count++;
+            }
+        }
+        console.log("Ім'я " + chooseName + " зустрічається " + count + " разів")
+
+        /*4. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи
+        заповнюються випадковим чином значеннями від -500 до 500). Користувач вибирає
+        номер елементу, поки не відмовиться від подальшої гри, або не вибере всі елементи.
+        Після кожного ходу показувати сумарний виграш. Кожен елемент можна вибирати тільки
+        1 раз.*/
+        let array = [];
+        let m = 10;
+        for (let i = 0; i < m; i++) {
+            array[i] = Math.floor(Math.random() * 1001) - 500;
+        }
+
+        let sure2 = true;
+        let index;
+        let counter = 0;
+
+        do {
+            index = parseInt(prompt("Введіть номер елементу: "));
+
+            if (index < 1 || index > m) {
+                alert("Невірний індекс! Введіть число від 1 до " + m);
+                continue;
+            }
+
+            if (array[index - 1] !== false) {
+                counter += array[index - 1];
+                array[index - 1] = false;
+            } else {
+                alert("Цей елемент вже вибраний, виберіть інший.");
+            }
+
+            sure2 = confirm("Ваш сумарний виграш = " + counter + ". Бажаєте продовжити?");
+
+        } while (sure2 && !array.every(el => el === false));
+        console.log("Ваш сумарний виграш = " + counter)
+    </script>
+</body>
+
+</html>
